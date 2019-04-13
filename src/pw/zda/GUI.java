@@ -1,5 +1,8 @@
 package pw.zda;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,26 +17,29 @@ public class GUI extends JFrame {
 	int button_y = 30;
 	
 			
-	Button buttton_0 = new Button(button_x*6, button_y*14, button_width, button_height, "0", this);
-	Button buttton_1 = new Button(button_x*3, button_y*5, button_width, button_height, "1", this);
-	Button buttton_2 = new Button(button_x*6, button_y*5, button_width, button_height, "2", this);
-	Button buttton_3 = new Button(button_x*9, button_y*5, button_width, button_height, "3", this);
-	Button buttton_4 = new Button(button_x*3, button_y*8, button_width, button_height, "4", this); 
-	Button buttton_5 = new Button(button_x*6, button_y*8, button_width, button_height, "5", this);
-	Button buttton_6 = new Button(button_x*9, button_y*8, button_width, button_height, "6", this);
-	Button buttton_7 = new Button(button_x*3, button_y*11, button_width, button_height, "7", this);
-	Button buttton_8 = new Button(button_x*6, button_y*11, button_width, button_height, "8", this);
-	Button buttton_9 = new Button(button_x*9, button_y*11, button_width, button_height, "9", this);
+	Button button_0 = new Button(button_x*6, button_y*14, button_width, button_height, "0", this);
+	Button button_1 = new Button(button_x*3, button_y*5, button_width, button_height, "1", this);
+	Button button_2 = new Button(button_x*6, button_y*5, button_width, button_height, "2", this);
+	Button button_3 = new Button(button_x*9, button_y*5, button_width, button_height, "3", this);
+	Button button_4 = new Button(button_x*3, button_y*8, button_width, button_height, "4", this); 
+	Button button_5 = new Button(button_x*6, button_y*8, button_width, button_height, "5", this);
+	Button button_6 = new Button(button_x*9, button_y*8, button_width, button_height, "6", this);
+	Button button_7 = new Button(button_x*3, button_y*11, button_width, button_height, "7", this);
+	Button button_8 = new Button(button_x*6, button_y*11, button_width, button_height, "8", this);
+	Button button_9 = new Button(button_x*9, button_y*11, button_width, button_height, "9", this);
 	
-	Button buttton_add = new Button(button_x, button_y, button_width, button_height, "+", this);
-	Button buttton_subtract = new Button(button_x, button_y, button_width, button_height, "-", this);
-	Button buttton_multi = new Button(button_x, button_y, button_width, button_height, "*", this);
-	Button buttton_divide = new Button(button_x, button_y, button_width, button_height, "/", this);
-	Button buttton_exec = new Button(button_x*9, button_y*10, button_width, button_height, "exe", this);
+	Button button_add = new Button(button_x*12, button_y*5, button_width, button_height, "+", this);
+	Button button_subtract = new Button(button_x*12, button_y*8, button_width, button_height, "-", this);
+	Button button_multi = new Button(button_x*12, button_y*11, button_width, button_height, "*", this);
+	Button button_divide = new Button(button_x*12, button_y*14, button_width, button_height, "/", this);
+	Button button_exec = new Button(button_x*9, button_y*14, button_width, button_height, "exe", this);
+	Button button_comma = new Button(button_x*3, button_y*14, button_width, button_height, ",", this);
+	
+	TextField textField = new TextField(button_x*3, button_y, 350, button_height, "", this);
 	
 	public GUI()
 	{
-		   setSize(500, 600);
+		   setSize(530, 600);
 		   setLocation(100, 150);
 		   //make sure it quits when x is clicked
 		   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,6 +54,7 @@ public class GUI extends JFrame {
 		   
 		   
 		   addElements();
+		   addListeners();
 		   setLayout(null);
 		   setVisible(true);
 		
@@ -56,23 +63,43 @@ public class GUI extends JFrame {
 	
 	public void addElements()
 	{
-		add(buttton_0);
-		add(buttton_1);
-		add(buttton_2);
-		add(buttton_3);
-		add(buttton_4);
-		add(buttton_5);
-		add(buttton_6);
-		add(buttton_7);
-		add(buttton_8);
-		add(buttton_9);
+		add(button_0);
+		add(button_1);
+		add(button_2);
+		add(button_3);
+		add(button_4);
+		add(button_5);
+		add(button_6);
+		add(button_7);
+		add(button_8);
+		add(button_9);
 		
-		add(buttton_add);
-		add(buttton_subtract);
-		add(buttton_multi);
-		add(buttton_divide);
-		add(buttton_exec);	
+		add(button_add);
+		add(button_subtract);
+		add(button_multi);
+		add(button_divide);
+		add(button_exec);	
+		add(button_comma); 
+		add(textField);
 	}
+	
+	public void addListeners()
+	{
+		Button1_listener Button1_listener = new Button1_listener();
+		button_0.addActionListener(Button1_listener);
+
+	}
+	
+	
+	class Button1_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			textField.setText("zzz");	
+			
+		}
+	 
+	    }
 	
 	
 	

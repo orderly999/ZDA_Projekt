@@ -14,7 +14,6 @@ public class Button extends JButton {
 	super(name);	
 	setBounds(x, y, width, height);
 	setFont(new Font("Arial", Font.BOLD, 20));
-	
 	}
 	
 }
