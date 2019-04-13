@@ -11,7 +11,9 @@ import javax.swing.JTextField;
 public class GUI extends JFrame {
 
 	
-	public String displayedValue = new String();
+	public String displayedValue = new String("0");
+	public String displayedValue2 = new String("0");
+	public String lastClicked = new String("0");
 	
 	int button_width = 75;
 	int button_height = 75;
@@ -49,7 +51,7 @@ public class GUI extends JFrame {
 		   setDefaultLookAndFeelDecorated(true);
 
 		   
-		   
+		   setTitle("Kalkulator ZDA PW v4.2019");
 		   addElements();
 		   addListeners();
 		   setLayout(null);
@@ -141,24 +143,25 @@ public class GUI extends JFrame {
 		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
 		button_clr.addActionListener(buttonClr_listener);
 		
-		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
-		button_add.addActionListener(buttonAny_listener); 
+		ButtonAdd_listener buttonAdd_listener  = new ButtonAdd_listener();
+		button_add.addActionListener(buttonAdd_listener); 
 		
-		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
-		button_subtract.addActionListener(buttonAny_listener); 
+		ButtonSub_listener buttonSub_listener  = new ButtonSub_listener();
+		button_subtract.addActionListener(buttonSub_listener); 
 		
-		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
-		button_multi.addActionListener(buttonAny_listener); 
+		ButtonMul_listener buttonMul_listener  = new ButtonMul_listener();
+		button_multi.addActionListener(buttonMul_listener); 
 		
-		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
-		button_divide.addActionListener(buttonAny_listener);
+		ButtonDiv_listener buttonDiv_listener  = new ButtonDiv_listener();
+		button_divide.addActionListener(buttonDiv_listener);
 		
-		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
-		button_exec.addActionListener(buttonAny_listener);
+		ButtonExec_listener buttonExec_listener  = new ButtonExec_listener();
+		button_exec.addActionListener(buttonExec_listener);
 		
-		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
-		button_comma.addActionListener(buttonAny_listener);
+		ButtonClr_listener buttonComma_listener  = new ButtonClr_listener();
+		button_comma.addActionListener(buttonComma_listener);
 
+		textField.setText("0");
 	}
 	
 	
@@ -166,6 +169,8 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			if (displayedValue.equals("0"))
+			displayedValue = "";	
 			displayedValue = displayedValue.concat("0");
 		}
 	    }
@@ -175,6 +180,8 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			if (displayedValue.equals("0"))
+				displayedValue = "";
 			displayedValue = displayedValue.concat("1");
 			
 		}
@@ -184,6 +191,8 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			if (displayedValue.equals("0"))
+				displayedValue = "";
 			displayedValue = displayedValue.concat("2");
 			
 		}
@@ -193,6 +202,8 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			if (displayedValue.equals("0"))
+				displayedValue = "";
 			displayedValue = displayedValue.concat("3");
 			
 		}
@@ -202,6 +213,8 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			if (displayedValue.equals("0"))
+				displayedValue = "";
 			displayedValue = displayedValue.concat("4");
 			
 		}
@@ -211,6 +224,8 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			if (displayedValue.equals("0"))
+				displayedValue = "";
 			displayedValue = displayedValue.concat("5");
 			
 		}
@@ -220,6 +235,8 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			if (displayedValue.equals("0"))
+				displayedValue = "";
 			displayedValue = displayedValue.concat("6");
 			
 		}
@@ -230,6 +247,8 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			if (displayedValue.equals("0"))
+				displayedValue = "";
 			displayedValue = displayedValue.concat("7");
 			
 		}
@@ -239,6 +258,8 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			if (displayedValue.equals("0"))
+				displayedValue = "";
 			displayedValue = displayedValue.concat("8");
 			
 		}
@@ -249,6 +270,8 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			if (displayedValue.equals("0"))
+				displayedValue = "";
 			displayedValue = displayedValue.concat("9");
 			
 		}
@@ -267,17 +290,22 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			textField.setText("");
-			displayedValue = "";
+			textField.setText("0");
+			displayedValue = "0";
 		}
 	    }
 	
 	
 	class ButtonAdd_listener implements ActionListener {
-
+     
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
+		lastClicked = new String(textField.getText());	
+//		displayedValue2 = new String(displayedValue);		
+//		int result = Integer.valueOf(displayedValue) + Integer.valueOf(displayedValue2);
+//		//displayedValue = new String(displayedValue2);
+//		displayedValue2 = String.valueOf(result);
+//		textField.setText("displayedValue2");
 		}
 	    }
 	
@@ -285,7 +313,7 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-		
+			lastClicked = new String(textField.getText());
 		}
 	    }
 	
@@ -293,7 +321,7 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
+			lastClicked = new String(textField.getText());	
 		}
 	    }
 	
@@ -301,11 +329,25 @@ public class GUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-	
+			lastClicked = new String(textField.getText());
+//			displayedValue2 = new String(displayedValue);	
+//			int result = Integer.valueOf(displayedValue) * Integer.valueOf(displayedValue2);
+//			//displayedValue = new String(displayedValue2);
+//			displayedValue2 = String.valueOf(result);		
+//			textField.setText("displayedValue2");
 		}
 	    }
 	
 	class ButtonExec_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+
+			
+		}
+	    }
+	
+	class ButtonComma_listener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
