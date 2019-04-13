@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 public class GUI extends JFrame {
 
 	
+	public String displayedValue = new String();
+	
 	int button_width = 75;
 	int button_height = 75;
 	int button_x = 30;
@@ -37,20 +39,15 @@ public class GUI extends JFrame {
 	
 	TextField textField = new TextField(button_x*3, button_y, 350, button_height, "", this);
 	
+	Button button_clr = new Button(button_x*3, button_y*17, 350, button_height, "clr", this);
+	
 	public GUI()
 	{
-		   setSize(530, 600);
+		   setSize(530, 650);
 		   setLocation(100, 150);
-		   //make sure it quits when x is clicked
 		   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		   //set look and feel
 		   setDefaultLookAndFeelDecorated(true);
-		   JLabel labelM = new JLabel("Not Only of Sight, but of: ");
-		   labelM.setBounds(50, 50, 200, 30);
-		   JTextField motto1 = new JTextField();
-		   //set size of the text box
-		   motto1.setBounds(50, 100, 200, 30);
-		   //add elements to the frame
+
 		   
 		   
 		   addElements();
@@ -81,27 +78,240 @@ public class GUI extends JFrame {
 		add(button_exec);	
 		add(button_comma); 
 		add(textField);
+		add(button_clr);
 	}
 	
 	public void addListeners()
 	{
+		
+		ButtonAny_listener buttonAny_listener = new ButtonAny_listener();
+		
+		button_0.addActionListener(buttonAny_listener);
+		button_1.addActionListener(buttonAny_listener);
+		button_2.addActionListener(buttonAny_listener);
+		button_3.addActionListener(buttonAny_listener); 
+		button_4.addActionListener(buttonAny_listener);  
+		button_5.addActionListener(buttonAny_listener); 
+		button_6.addActionListener(buttonAny_listener); 
+		button_7.addActionListener(buttonAny_listener); 
+		button_8.addActionListener(buttonAny_listener); 
+		button_9.addActionListener(buttonAny_listener); 
+		
+		button_add.addActionListener(buttonAny_listener); 
+		button_subtract.addActionListener(buttonAny_listener); 
+		button_multi.addActionListener(buttonAny_listener); 
+		button_divide.addActionListener(buttonAny_listener); 
+		button_exec.addActionListener(buttonAny_listener);
+		button_comma.addActionListener(buttonAny_listener);
+		
+		
+		
+		Button0_listener Button0_listener = new Button0_listener();
+		button_0.addActionListener(Button0_listener);
+		
 		Button1_listener Button1_listener = new Button1_listener();
-		button_0.addActionListener(Button1_listener);
+		button_1.addActionListener(Button1_listener);
+		
+		Button2_listener Button2_listener = new Button2_listener();
+		button_2.addActionListener(Button2_listener);
+		
+		Button3_listener Button3_listener = new Button3_listener();
+		button_3.addActionListener(Button3_listener);
+		
+		Button4_listener Button4_listener = new Button4_listener();
+		button_4.addActionListener(Button4_listener);
+		
+		Button5_listener Button5_listener = new Button5_listener();
+		button_5.addActionListener(Button5_listener);
+		
+		Button6_listener Button6_listener = new Button6_listener();
+		button_6.addActionListener(Button6_listener);
+		
+		Button7_listener Button7_listener = new Button7_listener();
+		button_7.addActionListener(Button7_listener);
+		
+		Button8_listener Button8_listener = new Button8_listener();
+		button_8.addActionListener(Button8_listener);
+		
+		Button9_listener Button9_listener = new Button9_listener();
+		button_9.addActionListener(Button9_listener);
+		
+		
+		
+		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
+		button_clr.addActionListener(buttonClr_listener);
+		
+		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
+		button_add.addActionListener(buttonAny_listener); 
+		
+		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
+		button_subtract.addActionListener(buttonAny_listener); 
+		
+		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
+		button_multi.addActionListener(buttonAny_listener); 
+		
+		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
+		button_divide.addActionListener(buttonAny_listener);
+		
+		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
+		button_exec.addActionListener(buttonAny_listener);
+		
+		ButtonClr_listener buttonClr_listener  = new ButtonClr_listener();
+		button_comma.addActionListener(buttonAny_listener);
 
 	}
+	
+	
+	class Button0_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			displayedValue = displayedValue.concat("0");
+		}
+	    }
 	
 	
 	class Button1_listener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			textField.setText("zzz");	
+			displayedValue = displayedValue.concat("1");
 			
 		}
-	 
+	    }
+	
+	class Button2_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			displayedValue = displayedValue.concat("2");
+			
+		}
+	    }
+	
+	class Button3_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			displayedValue = displayedValue.concat("3");
+			
+		}
+	    }
+	
+	class Button4_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			displayedValue = displayedValue.concat("4");
+			
+		}
+	    }
+	
+	class Button5_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			displayedValue = displayedValue.concat("5");
+			
+		}
+	    }
+	
+	class Button6_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			displayedValue = displayedValue.concat("6");
+			
+		}
 	    }
 	
 	
+	class Button7_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			displayedValue = displayedValue.concat("7");
+			
+		}
+	    }
 	
+	class Button8_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			displayedValue = displayedValue.concat("8");
+			
+		}
+	    }
+	
+	
+	class Button9_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			displayedValue = displayedValue.concat("9");
+			
+		}
+	    }
+	
+	class ButtonAny_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			textField.setText(displayedValue);
+			
+		}
+	    }
+	
+	class ButtonClr_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			textField.setText("");
+			displayedValue = "";
+		}
+	    }
+	
+	
+	class ButtonAdd_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+		}
+	    }
+	
+	class ButtonSub_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+		
+		}
+	    }
+	
+	class ButtonDiv_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+		}
+	    }
+	
+	class ButtonMul_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+	
+		}
+	    }
+	
+	class ButtonExec_listener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+
+			
+		}
+	    }
 	
 }
